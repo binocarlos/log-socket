@@ -23,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/binocarlos/log-socket/issues"
   },
-  "homepage": "https://github.com/binocarlos/log-socket"
+  "homepage": "https://github.com/binocarlos/log-socket",
+  "devDependencies": {
+    "concat-stream": "^1.4.6",
+    "hyperquest": "^0.3.0",
+    "tape": "^2.14.0"
+  },
+  "dependencies": {
+    "through2": "^0.6.0"
+  }
 }

@@ -20,7 +20,7 @@ var server = http.createServer(function(req, res){
 })
 
 // redirect everything to this backend socket
-var proxy = logsocket('127.0.0.1', 8081)
+var proxy = logsocket(8081, '127.0.0.1')
 
 // Request data
 proxy.on('input', function(chunk, enc){
