@@ -1,6 +1,6 @@
 {
   "name": "log-socket",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "tcp proxy socket that dumps everything through it to console.log - useful for debugging HTTP servers",
   "main": "index.js",
   "scripts": {
