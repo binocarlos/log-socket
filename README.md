@@ -44,9 +44,11 @@ $ curl -L http://127.0.0.1:8080
 
 ## api
 
-#### `var proxy = logsocket(port, [address])`
+#### `var proxy = logsocket(port, [address, opts])`
 
 Return a tcp socket that will proxy traffic back to address:port - the default for address is '127.0.0.1'
+
+Opts are passed into `new net.Socket(opts)`
 
 ## events
 
