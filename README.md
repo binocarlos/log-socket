@@ -42,6 +42,22 @@ If you then curl to the logsocket - you will get a response from the backend HTT
 $ curl -L http://127.0.0.1:8080
 ```
 
+## api
+
+#### `var proxy = logsocket(port, [address])`
+
+Return a tcp socket that will proxy traffic back to address:port - the default for address is '127.0.0.1'
+
+## events
+
+#### `proxy.on('input', function(chunk, enc){})`
+
+Called when data is recieved by the socket
+
+#### `proxy.on('output', function(chunk, enc){})`
+
+Called when data is sent by the socket
+
 ## license
 
 MIT
