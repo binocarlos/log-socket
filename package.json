@@ -1,0 +1,27 @@
+{
+  "name": "log-socket",
+  "version": "0.0.1",
+  "description": "tcp proxy socket that dumps everything through it to console.log - useful for debugging HTTP servers",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binocarlos/log-socket.git"
+  },
+  "keywords": [
+    "log",
+    "tcp",
+    "proxy",
+    "socket",
+    "debug",
+    "http"
+  ],
+  "author": "Kai Davenport",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binocarlos/log-socket/issues"
+  },
+  "homepage": "https://github.com/binocarlos/log-socket"
+}
