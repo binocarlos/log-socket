@@ -6,7 +6,10 @@ var concat = require('concat-stream')
 
 var server = null
 var proxy = null
-var results = {}
+var results = {
+  input:'',
+  output:''
+}
 function startServers(done){
   server = http.createServer(function(req, res){
     res.setHeader('x-test', 10)
@@ -18,12 +21,12 @@ function startServers(done){
 
   // Request data
   proxy.on('input', function(chunk, enc){
-    results.input += chunk.toString()
+    results.input += (chunk || '').toString()
   })
 
   // Response data
   proxy.on('output', function(chunk, enc){
-    results.output += chunk.toString()
+    results.output += (chunk || '').toString()
   })
 
   server.listen(8081)
@@ -54,8 +57,16 @@ tape('capture taffic going through the logsocket', function(t){
   })
 
   req.pipe(concat(function(answer){
-    console.log('-------------------------------------------');
-    console.log(answer.toString())
+
+    t.equal(answer.toString(), 'hello', 'body intact')
+    var inputs = results.input.split(/\r?\n/g)
+    var outputs = results.output.split(/\r?\n/g)
+
+    t.equal(inputs[0], 'GET /hello HTTP/1.1', 'inputs 1')
+    t.equal(inputs[1], 'Host: 127.0.0.1:8080', 'inputs 2')
+    t.equal(outputs[0], 'HTTP/1.1 200 OK', 'outputs 1')
+    t.equal(outputs[1], 'x-test: 10', 'outputs 2')
+
     t.end()
     
   }))
